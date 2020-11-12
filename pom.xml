@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jiangqi.mymicroservice.example</groupId>
+	<artifactId>example</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>example</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<!-- <dependency> <groupId>org.slf4j</groupId> <artifactId>slf4j-api</artifactId> 
+			<version>${slf4j.version}</version> </dependency> -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<!-- <dependency> <groupId>ch.qos.logback</groupId> <artifactId>logback-core</artifactId> 
+				<version>${logback.version}</version> </dependency> <dependency> <groupId>ch.qos.logback</groupId> 
+				<artifactId>logback-classic</artifactId> <version>${logback.version}</version> 
+				</dependency> -->
+
+			<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-test</artifactId> 
+				<version>${spring-boot.version}</version> <scope>test</scope> </dependency> -->
+			<!-- springboot 自带健康检查 -->
+			<!-- <dependency> <groupId>org.springframework.boot</groupId> <artifactId>spring-boot-starter-actuator</artifactId> 
+				<version>${spring-boot.version}</version> </dependency> -->
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger2</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>${httpclient.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.springfox</groupId>
+				<artifactId>springfox-swagger-ui</artifactId>
+				<version>${swagger2.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka_2.12</artifactId>
+				<version>${kafka.version}</version>
+			</dependency>
+			<!--  
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-undertow</artifactId>
+				<version>2.1.1.RELEASE</version>
+			</dependency>
+			-->
+		</dependencies>
+	</dependencyManagement>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<logback.version>1.2.3</logback.version>
+		<slf4j.version>1.7.25</slf4j.version>
+		<swagger2.version>2.9.2</swagger2.version>
+		<lombok.version>1.18.8</lombok.version>
+		<httpclient.version>4.5.8</httpclient.version>
+		<kafka.version>2.2.1</kafka.version>
+	</properties>
+	<description>springboot+k8s实现微服务演示框架</description>
+	<organization>
+		<name>jiangqi.com</name>
+	</organization>
+	<modules>
+		<module>util</module>
+		<module>serviceTwo</module>
+		<module>callService</module>
+	</modules>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.6.RELEASE</version>
+	</parent>
+</project>
